@@ -149,7 +149,7 @@ namespace PdfiumViewer
 
                 for (var i = 0; i < Frames.Length; i++)
                 {
-                    Frames[i] ??= new Image { Margin = FrameSpace };
+                    Frames[i] = Frames[i] ?? new Image { Margin = FrameSpace };
 
                     var pageSize = CalculatePageSize(i);
                     Frames[i].Width = pageSize.Width;
@@ -205,7 +205,7 @@ namespace PdfiumViewer
         }
         protected Size CalculatePageSize(int? page = null)
         {
-            page ??= PageNo;
+            page = page ?? PageNo;
             var isReverse = (Rotate == PdfRotation.Rotate90 || Rotate == PdfRotation.Rotate270);
             var containerWidth = ActualWidth - Padding.Left - Padding.Right - FrameSpace.Left - FrameSpace.Right; // ViewportWidth
             var containerHeight = ActualHeight - Padding.Top - Padding.Bottom - FrameSpace.Top - FrameSpace.Bottom; // ViewportHeight
@@ -453,7 +453,7 @@ namespace PdfiumViewer
         }
         protected void SetMouseWheelDelta(int delta)
         {
-            MouseWheelUpdateTime = Environment.TickCount64;
+            MouseWheelUpdateTime = Environment.TickCount;
             MouseWheelDelta = delta;
         }
         protected virtual void Dispose(bool disposing)

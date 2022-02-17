@@ -210,7 +210,7 @@ namespace PdfiumViewer
                 if (marker.Page < 0 || marker.Page >= _markers.Length)
                     continue;
 
-                _markers[marker.Page] ??= new List<IPdfMarker>();
+                _markers[marker.Page] = _markers[marker.Page] ?? new List<IPdfMarker>();
                 _markers[marker.Page].Add(marker);
             }
         }

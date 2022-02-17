@@ -1,37 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net461;netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <Version>1.0.6</Version>
-    <Authors>Behzad Khosravifar</Authors>
+    <Version>1.1.0</Version>
+    <Authors>mail@521.org.cn</Authors>
     <Description>PDF viewer based on Google's PDFium port to .Net Core.</Description>
-    <Copyright>Copyright © 2019-2020 Behzad Khosravifar</Copyright>
-    <PackageProjectUrl>https://github.com/bezzad/PdfiumViewer</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/bezzad/PdfiumViewer.git</RepositoryUrl>
-    <PackageTags>pdfium pdf-viewer wpf-controls dotnet-core google-pdf-viewer chrome-pdf</PackageTags>
+    <Copyright>Copyright © 2021</Copyright>
+    <PackageProjectUrl>https://github.com/91651/PdfiumViewer</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/91651/PdfiumViewer</RepositoryUrl>
+    <PackageTags>pdfium pdf-viewer wpf-pdfium</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
-    <PackageId>PdfiumViewer.WPF</PackageId>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReleaseNotes>.Net 5 Support</PackageReleaseNotes>
-    <AssemblyVersion>1.0.6.0</AssemblyVersion>
-    <FileVersion>1.0.6.0</FileVersion>
+    <PackageId>PDFium.Viewer.WPF</PackageId>
+    <PackageReleaseNotes>Support .net framework4.6.1+、netcoreapp3.1、net5.0、net6.0</PackageReleaseNotes>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="PdfiumViewer.Native.x86.v8-xfa" Version="2018.4.8.256" />
     <PackageReference Include="PdfiumViewer.Native.x86_64.v8-xfa" Version="2018.4.8.256" />
-    <PackageReference Include="PropertyChanged.Fody" Version="3.2.8" />
-    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

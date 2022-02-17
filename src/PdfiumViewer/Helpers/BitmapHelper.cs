@@ -22,18 +22,20 @@ namespace PdfiumViewer.Helpers
         {
             if (bitmap == null) return null;
 
-            using var source = (System.Drawing.Bitmap)bitmap.Clone();
-            var hBitmap = source.GetHbitmap(); //obtain the Hbitmap
-
-            var bs = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+            using (var source = (System.Drawing.Bitmap)bitmap.Clone())
+            {
+                var hBitmap = source.GetHbitmap(); //obtain the Hbitmap
+                var bs = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
                 hBitmap,
                 IntPtr.Zero,
                 System.Windows.Int32Rect.Empty,
                 System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
 
-            NativeMethods.DeleteObject(hBitmap); //release the HBitmap
-            bs.Freeze();
-            return bs;
+                NativeMethods.DeleteObject(hBitmap); //release the HBitmap
+                bs.Freeze();
+                return bs;
+            }
+            
         }
 
         public static BitmapSource ToBitmapSource(this byte[] bytes, int width, int height, int dpiX, int dpiY)
