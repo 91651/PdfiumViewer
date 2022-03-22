@@ -19,7 +19,6 @@ namespace PdfiumViewer
             Markers.CollectionChanged += Markers_CollectionChanged;
         }
 
-
         /// <summary>
         /// Gets a collection with all markers.
         /// </summary>
@@ -60,9 +59,11 @@ namespace PdfiumViewer
         }
         public void UnLoad()
         {
+            base.ScrollToTop();
             Document?.Dispose();
             Document = null;
             Frames = null;
+            PageNo = default;
             _markers = null;
             Panel.Children.Clear();
             GC.Collect();
@@ -122,7 +123,7 @@ namespace PdfiumViewer
         /// <param name="bounds">The PDF bounds to scroll into view.</param>
         public void ScrollIntoView(PdfRectangle bounds)
         {
-           ScrollIntoView(BoundsFromPdf(bounds));
+            ScrollIntoView(BoundsFromPdf(bounds));
         }
 
         /// <summary>
@@ -229,8 +230,6 @@ namespace PdfiumViewer
                 }
             }
         }
-
-        
 
         private void Markers_CollectionChanged(object sender, EventArgs e)
         {
